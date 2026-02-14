@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$ANGMU - The Bird Who Knows the Moon</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Jua&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #FFD700;   /* Angmu Yellow */
+            --secondary: #2E8B57; /* Angmu Green */
+            --accent: #FF6347;    /* Blush Red */
+            --bg: #FFFACD;        /* Cream Background */
+            --dark: #333333;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Fredoka', 'Jua', sans-serif;
+            background-color: var(--bg);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%; 
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav.scrolled {
+            padding: 10px 5%; 
+            background: rgba(255, 255, 255, 0.98); 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: font-size 0.3s ease;
+        }
+
+        /* 로고 이미지 스타일 */
+        .nav-logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled .logo {
+            font-size: 1.5rem;
+        }
+
+        .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn-buy-nav {
+            background: var(--accent);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 0 #cc4f39;
+            transition: all 0.2s;
+        }
+
+        nav.scrolled .btn-buy-nav {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+
+        .btn-buy-nav:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 #cc4f39;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: radial-gradient(circle at center, #fff 0%, var(--bg) 100%);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .hero-img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 8px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            animation: float 3s ease-in-out infinite;
+            margin-bottom: 30px;
+            object-fit: cover;
+            background-color: white;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 0px var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn-main {
+            padding: 18px 40px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            border: none;
+            font-family: 'Jua', sans-serif;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 6px 0 rgba(0,0,0,0.2);
+        }
+
+        .btn-dex { background: var(--primary); color: var(--dark); }
+        .btn-tg { background: #0088cc; color: white; }
+        .btn-x { background: #000; color: white; }
+        .btn-reddit { background: #FF5700; color: white; }
+
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 9px 0 rgba(0,0,0,0.2); }
+        .btn-main:active { transform: translateY(3px); box-shadow: 0 0 0 rgba(0,0,0,0.2); }
+
+        /* --- Sections Common --- */
+        section { padding: 80px 20px; }
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--dark);
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        /* --- About --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-text h3 { font-size: 2rem; color: var(--accent); margin-bottom: 20px; }
+        .about-text p { font-size: 1.2rem; margin-bottom: 15px; }
+
+        /* --- Tokenomics --- */
+        .tokenomics { background: white; border-radius: 30px; margin: 20px; }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        .stat-card {
+            padding: 30px;
+            background: var(--bg);
+            border-radius: 20px;
+            border: 3px solid var(--primary);
+        }
+        .stat-card i { font-size: 3rem; color: var(--secondary); margin-bottom: 15px; }
+        .stat-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .stat-card p { font-size: 1.8rem; font-weight: bold; color: var(--dark); }
+
+        /* --- Roadmap --- */
+        .roadmap-item {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            border-left: 10px solid var(--secondary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .roadmap-item h3 { font-size: 1.5rem; color: var(--secondary); }
+        .roadmap-item ul { list-style: none; margin-top: 10px; }
+        .roadmap-item li { margin-bottom: 5px; font-size: 1.1rem; }
+        .roadmap-item li::before { content: "🦜 "; }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 50px;
+        }
+        .social-links { margin-bottom: 20px; }
+        /* 푸터 아이콘 기본 스타일 */
+        .social-links a { 
+            color: white; 
+            font-size: 2rem; 
+            margin: 0 15px; 
+            transition: color 0.3s; 
+            display: inline-block;
+        }
+        .social-links a:hover { color: var(--primary); }
+        
+        /* 카카오톡 아이콘 호버 시 노란색(카카오색)으로 변경 */
+        .social-links a.kakao-link:hover { color: #FEE500; }
+
+        /* --- Mobile --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .logo { margin: 0 auto; }
+            .hero-img { width: 220px; height: 220px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" class="logo">
+        <img src="angmu_icon.png" alt="Angmu Logo" class="nav-logo-img"> 
+        ANGMU COIN
+    </a>
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="https://pump.fun/board" target="_blank" class="btn-buy-nav">Buy Now</a>
+    </div>
+</nav>
+
+    <section class="hero">
+        <div class="container">
+            <img src="angmu_icon.png" alt="Angmu Coin Logo" class="hero-img">
+            
+            <h1>$ANGMU</h1>
+            <p>HODL the Wing, Feel the Love<br>The only bird that takes you to the moon.</p>
+
+            <div class="btn-group">
+                <a href="https://pump.fun/내_코인_주소" target="_blank" class="btn-main btn-dex">💊 BUY ON PUMP.FUN</a>
+                
+                <a href="https://www.reddit.com/r/내_레딧_주소" target="_blank" class="btn-main btn-reddit"><i class="fa-brands fa-reddit-alien"></i> Reddit</a>
+                
+                <a href="https://t.me/내_텔레그램_주소" target="_blank" class="btn-main btn-tg"><i class="fa-brands fa-telegram"></i> Telegram</a>
+                
+                <a href="https://x.com/내_트위터_아이디" target="_blank" class="btn-main btn-x"><i class="fa-brands fa-x-twitter"></i> X (Twitter)</a>
+                </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">What is $ANGMU?</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>The Bird Who Knows the Moon 🌕</h3>
+                    <p>
+                        Crypto can be stressful. Red candles, FOMO, and sleepless nights... we know the pain. 
+                        That's why <strong>$ANGMU</strong> is here.
+                    </p>
+                    <p>
+                        $ANGMU is not just a meme coin; it's <strong>Emotional Support</strong> for your portfolio. 
+                        Based on a real-life Green-cheeked Conure, Angmu brings peace to the chaotic blockchain.
+                    </p>
+                    <p>
+                        When the market dips, Angmu chirps. When you panic, Angmu judges you with cute eyes.
+                        <strong>Stop watching charts. Start watching Angmu.</strong>
+                    </p>
+                </div>
+                <img src="angmu_real.png" alt="Cute Parrot" style="width: 100%; border-radius: 20px; box-shadow: 10px 10px 0 var(--secondary);">
+            </div>
+        </div>
+    </section>
+
+    <section id="tokenomics" class="tokenomics">
+        <div class="container">
+            <h2 class="section-title">Tokenomics</h2>
+            
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem;">
+                <strong>70%</strong> of the supply goes to the Liquidity Pool (LP),<br>
+                and <strong>30%</strong> is allocated for Marketing & Team growth.
+            </p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fa-solid fa-coins"></i>
+                    <h3>Total Supply</h3>
+                    <p style="font-size: 1.2rem; word-break: break-all;">10,000,000,000,000</p>
+                    <span style="color: var(--secondary); font-weight: bold;">(10 Trillion)</span>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fa-solid fa-water"></i>
+                    <h3>Liquidity Pool</h3>
+                    <p>70%</p>
+                    <span>(Fair Launch)</span>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <h3>Marketing & Team</h3>
+                    <p>30%</p>
+                    <span>(For Growth)</span>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Security</h3>
+                    <p>Mint Revoked</p>
+                    <span style="color: var(--accent); font-weight: bold;">(No more minting)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap">
+        <div class="container">
+            <h2 class="section-title">Roadmap</h2>
+            
+            <div class="roadmap-item">
+                <h3>Phase 1: Hatching (Birth)</h3>
+                <ul>
+                    <li>Website V1 Launch & Community Setup</li>
+                    <li><strong>Massive Meme Production</strong> (Viral Marketing)</li>
+                    <li><strong>Angmu Sticker Pack Launch</strong></li>
+                    <li>Reach 1,000+ Holders</li>
+                </ul>
+            </div>
+
+            <div class="roadmap-item">
+                <h3>Phase 2: Learning to Fly (Growth)</h3>
+                <ul>
+                    <li><strong>CoinGecko & CMC Fast-Track Listing</strong></li>
+                    <li><strong>Global Marketing</strong></li>
+                    <li>Website V2 Launch</li>
+                    <li>Reach 10,000+ Holders</li>
+                </ul>
+            </div>
+
+            <div class="roadmap-item">
+                <h3>Phase 3: To the Moon (Expansion)</h3>
+                <ul>
+                    <li><strong>Tier 1 & 2 CEX Listings (Exchange)</strong></li>
+                    <li><strong>Angmu Foundation</strong></li>
+                    <li>Angmu Merchandise Store</li>
+                    <li>Reach 50,000+ Holders</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://x.com/내_트위터_아이디" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                
+                <a href="https://t.me/내_텔레그램_주소" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                
+                <a href="https://open.kakao.com/o/내_오픈카톡_주소" target="_blank" class="kakao-link"><i class="fa-solid fa-comment"></i></a>
+                
+                <a href="https://www.reddit.com/r/내_레딧_주소" target="_blank"><i class="fa-brands fa-reddit-alien"></i></a>
+                
+                </div>
+            <p>$ANGMU is a meme coin with no intrinsic value or expectation of financial return.</p>
+            <p>Proudly based in Korea 🇰🇷. Just for fun. © 2026 Angmu Coin.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Scroll Animation ---
+        window.addEventListener("scroll", function() {
+            var nav = document.querySelector("nav");
+            if (window.scrollY > 50) {
+                nav.classList.add("scrolled");
+            } else {
+                nav.classList.remove("scrolled");
+            }
+        });
+    </script>
+</body>
+</html>
