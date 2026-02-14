@@ -19,6 +19,7 @@
             --bg: #FFFACD;        /* Cream Background */
             --dark: #333333;
             --white: #ffffff;
+            --kakao: #FEE500;    /* Kakao Yellow */
         }
 
         * {
@@ -67,7 +68,6 @@
             transition: font-size 0.3s ease;
         }
 
-        /* 로고 이미지 스타일 */
         .nav-logo-img {
             width: 40px;
             height: 40px;
@@ -172,10 +172,16 @@
         .btn-dex { background: var(--primary); color: var(--dark); }
         .btn-tg { background: #0088cc; color: white; }
         .btn-x { background: #000; color: white; }
-        .btn-reddit { background: #FF5700; color: white; }
+        
+        .btn-kakao { 
+            background: var(--kakao); 
+            color: #3C1E1E; 
+            box-shadow: 0 6px 0 #d4be00;
+        }
+        .btn-kakao:active { box-shadow: 0 0 0 #d4be00; }
 
         .btn-main:hover { transform: translateY(-3px); box-shadow: 0 9px 0 rgba(0,0,0,0.2); }
-        .btn-main:active { transform: translateY(3px); box-shadow: 0 0 0 rgba(0,0,0,0.2); }
+        .btn-main:active { transform: translateY(3px); }
 
         /* --- Sections Common --- */
         section { padding: 80px 20px; }
@@ -239,7 +245,6 @@
             margin-top: 50px;
         }
         .social-links { margin-bottom: 20px; }
-        /* 푸터 아이콘 기본 스타일 */
         .social-links a { 
             color: white; 
             font-size: 2rem; 
@@ -248,9 +253,7 @@
             display: inline-block;
         }
         .social-links a:hover { color: var(--primary); }
-        
-        /* 카카오톡 아이콘 호버 시 노란색(카카오색)으로 변경 */
-        .social-links a.kakao-link:hover { color: #FEE500; }
+        .social-links a.kakao-link:hover { color: var(--kakao); }
 
         /* --- Mobile --- */
         @media (max-width: 768px) {
@@ -287,12 +290,12 @@
             <div class="btn-group">
                 <a href="https://pump.fun/내_코인_주소" target="_blank" class="btn-main btn-dex">💊 BUY ON PUMP.FUN</a>
                 
-                <a href="https://www.reddit.com/r/내_레딧_주소" target="_blank" class="btn-main btn-reddit"><i class="fa-brands fa-reddit-alien"></i> Reddit</a>
+                <a href="https://open.kakao.com/o/pZQo3vgi" target="_blank" class="btn-main btn-kakao"><i class="fa-solid fa-comment"></i> KakaoTalk</a>
                 
-                <a href="https://t.me/내_텔레그램_주소" target="_blank" class="btn-main btn-tg"><i class="fa-brands fa-telegram"></i> Telegram</a>
+                <a href="https://t.me/ANGMUCOIN" target="_blank" class="btn-main btn-tg"><i class="fa-brands fa-telegram"></i> Telegram</a>
                 
-                <a href="https://x.com/내_트위터_아이디" target="_blank" class="btn-main btn-x"><i class="fa-brands fa-x-twitter"></i> X (Twitter)</a>
-                </div>
+                <a href="https://x.com/ANGMUCOIN" target="_blank" class="btn-main btn-x"><i class="fa-brands fa-x-twitter"></i> X (Twitter)</a>
+            </div>
         </div>
     </section>
 
@@ -395,18 +398,15 @@
         </div>
     </section>
 
-    <footer>
+<footer>
         <div class="container">
             <div class="social-links">
-                <a href="https://x.com/내_트위터_아이디" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://open.kakao.com/o/pZQo3vgi" target="_blank" class="kakao-link"><i class="fa-solid fa-comment"></i></a>
                 
-                <a href="https://t.me/내_텔레그램_주소" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                <a href="https://t.me/ANGMUCOIN" target="_blank"><i class="fa-brands fa-telegram"></i></a>
                 
-                <a href="https://open.kakao.com/o/내_오픈카톡_주소" target="_blank" class="kakao-link"><i class="fa-solid fa-comment"></i></a>
-                
-                <a href="https://www.reddit.com/r/내_레딧_주소" target="_blank"><i class="fa-brands fa-reddit-alien"></i></a>
-                
-                </div>
+                <a href="https://x.com/ANGMUCOIN" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
             <p>$ANGMU is a meme coin with no intrinsic value or expectation of financial return.</p>
             <p>Proudly based in Korea 🇰🇷. Just for fun. © 2026 Angmu Coin.</p>
         </div>
