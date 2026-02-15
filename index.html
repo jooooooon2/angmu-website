@@ -9,14 +9,14 @@
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://angmu.kr">
-    <meta property="og:title" content="$ANGMU - 정서적 지지 앵무새 코인">
-    <meta property="og:description" content="차트 보느라 힘드신가요? 앵무가 당신의 포트폴리오를 지켜줍니다. HODL the Wing!">
-    <meta property="og:image" content="https://angmu.kr/angmu_icon.png"> 
+    <meta property="og:title" content="$ANGMU - The Bird Who Knows the Moon">
+    <meta property="og:description" content="The Bird Who knows the Moon 🌕. HODL the Wing!">
+    <meta property="og:image" content="https://angmu.kr/angmu_og.png"> 
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="$ANGMU - The Bird Who Knows the Moon">
     <meta name="twitter:description" content="Stop watching charts. Start watching Angmu. 🦜🌕">
-    <meta name="twitter:image" content="https://angmu.kr/angmu_icon.png">
+    <meta name="twitter:image" content="https://angmu.kr/angmu_og.png">
 
     <link rel="icon" href="angmu_icon.png" type="image/png">
     
@@ -34,6 +34,7 @@
             --dark: #333333;
             --white: #ffffff;
             --kakao: #FEE500;    /* Kakao Yellow */
+            --raydium: #372A6F;   /* Raydium Purple */
         }
 
         * {
@@ -183,7 +184,14 @@
             box-shadow: 0 6px 0 rgba(0,0,0,0.2);
         }
 
-        .btn-dex { background: var(--primary); color: var(--dark); }
+        .btn-raydium { 
+            background: linear-gradient(135deg, #372A6F 0%, #30A6A9 100%); 
+            color: white; 
+            box-shadow: 0 6px 0 #1b1535;
+        }
+        .btn-raydium:hover { background: linear-gradient(135deg, #4b3997 0%, #3bc4c7 100%); }
+        .btn-raydium:active { transform: translateY(3px); box-shadow: 0 0 0 #1b1535; }
+
         .btn-tg { background: #0088cc; color: white; }
         .btn-x { background: #000; color: white; }
         
@@ -195,7 +203,6 @@
         .btn-kakao:active { box-shadow: 0 0 0 #d4be00; }
 
         .btn-main:hover { transform: translateY(-3px); box-shadow: 0 9px 0 rgba(0,0,0,0.2); }
-        .btn-main:active { transform: translateY(3px); }
 
         /* --- Sections Common --- */
         section { padding: 80px 20px; }
@@ -290,7 +297,7 @@
         <a href="#about">About</a>
         <a href="#tokenomics">Tokenomics</a>
         <a href="#roadmap">Roadmap</a>
-        <a href="https://pump.fun/board" target="_blank" class="btn-buy-nav">Buy Now</a>
+        <a href="https://raydium.io/launchpad/token/?mint=8TezgzhsMDyPGGfno3ozUjV5TToZA6zE1HNGr6pUMray" target="_blank" class="btn-buy-nav">Buy Now</a>
     </div>
 </nav>
 
@@ -302,7 +309,7 @@
             <p>HODL the Wing, Feel the Love<br>The only bird that takes you to the moon.</p>
 
             <div class="btn-group">
-                <a href="https://pump.fun/내_코인_주소" target="_blank" class="btn-main btn-dex">💊 BUY ON PUMP.FUN</a>
+                <a href="https://raydium.io/launchpad/token/?mint=8TezgzhsMDyPGGfno3ozUjV5TToZA6zE1HNGr6pUMray" target="_blank" class="btn-main btn-raydium">🦄 BUY ON RAYDIUM</a>
                 
                 <a href="https://open.kakao.com/o/pZQo3vgi" target="_blank" class="btn-main btn-kakao"><i class="fa-solid fa-comment"></i> KakaoTalk</a>
                 
@@ -350,26 +357,26 @@
                 <div class="stat-card">
                     <i class="fa-solid fa-coins"></i>
                     <h3>Total Supply</h3>
-                    <p style="font-size: 1.2rem; word-break: break-all;">10,000,000,000,000</p>
-                    <span style="color: var(--secondary); font-weight: bold;">(10 Trillion)</span>
+                    <p style="font-size: 1.6rem; word-break: break-all;">10,000,000,000</p>
+                    <span style="color: var(--secondary); font-weight: bold;">(10 Billion)</span>
                 </div>
 
                 <div class="stat-card">
                     <i class="fa-solid fa-water"></i>
                     <h3>Liquidity Pool</h3>
-                    <p>70%</p>
+                    <p>98%</p>
                 </div>
 
                 <div class="stat-card">
                     <i class="fa-solid fa-bullhorn"></i>
                     <h3>Marketing & Team</h3>
-                    <p>30%</p>
+                    <p>2%</p>
                 </div>
 
                 <div class="stat-card">
                     <i class="fa-solid fa-shield-halved"></i>
                     <h3>Security</h3>
-                    <p>Mint Revoked</p>
+                    <p style="font-size: 1.4rem; word-break: break-all;"> Revoked Mint & </p> <p style="font-size: 1.4rem; word-break: break-all;"> Freeze</p>
                     <span style="color: var(--accent); font-weight: bold;">(No more minting)</span>
                 </div>
             </div>
@@ -412,13 +419,11 @@
         </div>
     </section>
 
-<footer>
+    <footer>
         <div class="container">
             <div class="social-links">
                 <a href="https://open.kakao.com/o/pZQo3vgi" target="_blank" class="kakao-link"><i class="fa-solid fa-comment"></i></a>
-                
                 <a href="https://t.me/ANGMUCOIN" target="_blank"><i class="fa-brands fa-telegram"></i></a>
-                
                 <a href="https://x.com/ANGMUCOIN" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
             </div>
             <p>$ANGMU is a meme coin with no intrinsic value or expectation of financial return.</p>
